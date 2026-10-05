@@ -35,7 +35,7 @@ in an interview it is usually the part that gets remembered. See
 ### The system under discussion
 
 An automated crypto trading system and its transparency dashboard: 116 Python
-modules, 59 test files, 548 test functions, ~50
+modules, 60 test files, 551 test functions, ~50
 instruments on a 15-second poll. The system's headline result is negative. The
 strategy does not clear its own transaction-cost floor, which is why the
 measurement apparatus is the interesting part rather than the strategy.

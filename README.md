@@ -26,8 +26,8 @@ changed (see [`docs/METHOD.md` §9](docs/METHOD.md)).
 **The trading is the substrate. The engineering is the subject.** What is being
 demonstrated is:
 
-- a **test suite** derived from real failures rather than imagined ones, 59
-  files and 548 test functions, each traceable to the incident that caused it
+- a **test suite** derived from real failures rather than imagined ones, 60
+  files and 551 test functions, each traceable to the incident that caused it
 - **quality assurance and control at the data layer**, carried by fifteen
   invariants that ask whether the running system's output is true of the world,
   not whether the code compiles
@@ -304,11 +304,11 @@ glassbox/
 │   └── core/
 │       ├── liveness.py         has each safeguard ever actually FIRED?
 │       └── vault.py            append-only, hash-chained audit log
-├── backend/tests/       59 files · 548 tests
+├── backend/tests/       60 files · 551 tests
 └── frontend/src/        37 components, the interface
 ```
 
-**116 Python files / 34,029 lines · 548 tests / 7,910 lines · 37 UI components.**
+**116 Python files / 34,109 lines · 551 tests / 8,308 lines · 37 UI components.**
 
 ---
 
@@ -365,6 +365,8 @@ irreproducibility documented in [26].
 
 The leading entrant scored **AUC 0.786**, with a 95% bootstrap interval of
 **[0.40, 1.00]** on 11 held-out observations. The system reports **no champion**.
+The arena now refuses to score fewer than 12 held-out cases at all, so the same run
+today would report "not enough data" instead of a number: the lesson, made into a rule.
 Ranking the entrants against one another in that regime is ranking noise.
 
 ### 5.4 Effective sample size under correlation
@@ -424,7 +426,7 @@ model is a first-class module rather than a constant.
 
 ## 8. Failure-driven testing
 
-Most of the 548 tests exist because something broke. Each encodes one incident:
+Most of the 551 tests exist because something broke. Each encodes one incident:
 symptom, root cause, and the check that now catches it. This is the practice [6]
 formalises as a readiness rubric and [7] explains the need for.
 
@@ -459,7 +461,7 @@ first run it offers a demo, the real strategies replayed over real stored prices
 with the real cost model, so every view is populated before any live data exists.
 
 ```bash
-cd backend && .venv/bin/python -m pytest -q     # 548 tests
+cd backend && .venv/bin/python -m pytest -q     # 551 tests (613 cases)
 bash run.sh --doctor                            # environment diagnosis
 ```
 

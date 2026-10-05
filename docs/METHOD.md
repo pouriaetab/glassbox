@@ -440,7 +440,7 @@ the odds estimate is built from 4.9 million historical observations."*
 4. Held-out AUC with a bootstrap confidence interval, plus Brier and log-loss.
 5. Decision rule declared in advance: a champion must have its **interval clear
    0.50**. The leader scored **AUC 0.786** with a 95% interval of
-   **[0.40, 1.00]** on 11 held-out observations → **no champion declared**.
+   **[0.40, 1.00]** on 11 held-out observations → **no champion declared**. (The arena now requires at least 12 held-out cases before it scores anything.)
 6. Trial count is part of the output, following the deflated-Sharpe argument
    that a result must be judged against how hard you searched for it.
 7. Stated plainly: no user study was run, so no claim is made that the interface
