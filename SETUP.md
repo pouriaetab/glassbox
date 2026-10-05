@@ -51,9 +51,9 @@ cannot claim the tunnel.
 
 ## 2. Where the prices come from
 
-Three options. The first needs nothing from you and is already switched on.
+It needs nothing from you and is already switched on.
 
-### Option A — public exchange data (default, recommended)
+### Public exchange data (default)
 
 Live prices come from **Coinbase's public API**, with **Kraken** as a fallback.
 Both are free and neither needs an account, a key or a login.
@@ -67,36 +67,10 @@ TC_FALLBACK_FEED=kraken
 
 Swap the two lines if you prefer Kraken as the main feed.
 
-**What you lose by not connecting Robinhood:** only the *measured* bid-ask
-spread. Without it the app assumes **0.95% per side** and labels that number
+**About trading costs:** without a measured bid-ask spread the app assumes **0.95% per side** and labels that number
 "not verified" everywhere it appears, so you always know which figures rest on
 an assumption. Prices, strategies, signals, the research lab and every chart are
 identical.
-
-### Option B — connect Robinhood for live trading
-
-Only needed if you want it to place real orders. Robinhood's agentic trading is
-an OAuth-gated MCP server, so you authorise it through Robinhood and it writes a
-token file — you never put a password into this app.
-
-```
-TC_EXECUTION_MODE=mcp
-TC_RH_TOKEN_PATH=./secrets/robinhood_mcp_token.json
-TC_LIVE_CONFIRM=<the exact phrase the app asks for>
-```
-
-Live trading is impossible unless `TC_LIVE_CONFIRM` is filled in. Leave it empty
-and the app physically cannot risk money.
-
-### Option C — Robinhood username and password
-
-**Not supported, on purpose.** This app never asks for, stores or transmits an
-account password. Robinhood does not offer a public REST API for retail
-accounts, so anything that "logs in" for you is scraping a session — which
-breaks their terms, can get an account locked, and means handing credentials to
-software. Use Option A for data and Option B if you want to trade.
-
----
 
 ## 2b. On a phone
 
@@ -116,16 +90,14 @@ Leave both at `0` and the app is localhost-only.
 
 ---
 
-## 3. Paper vs real money
+## 3. Paper and advisory modes
 
 | `TC_EXECUTION_MODE` | what happens |
 |---|---|
 | `paper` (default) | real prices, simulated fills, nothing at risk |
-| `advisory` | the engine writes order tickets; a human executes them |
-| `mcp` | the engine places real orders through Robinhood |
+| `advisory` | the engine writes order tickets for a human to review |
 
-Anything other than `paper` also requires `TC_LIVE_CONFIRM`. **Run it in paper
-for a few weeks before considering anything else.**
+This build has no broker connection, so neither mode can place a real order.
 
 Set your starting balance in `.env`:
 

@@ -27,3 +27,5 @@ data/*
 logs/
 # os
 .DS_Store
+# local development notes
+CLAUDE.md

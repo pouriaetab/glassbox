@@ -13,9 +13,9 @@ A ledger that is hand-maintained is a ledger that is wrong.
 
 The one feature that genuinely needs a model
 ---------------------------------------------
-Robinhood's agentic trading is an MCP server. There is no REST endpoint to place
-a crypto order; an LLM agent authenticates and calls the tools. So order
-placement cannot be made zero-token while the broker is Robinhood.
+Order placement was the one feature that needed a model, and it was removed
+with the broker connection before publication. The notes below describe the
+design as it was.
 
 But the MODEL is not fixed. Any MCP-capable model can drive it, so the provider
 is switchable — a cheap or free model can place orders just as well as an
@@ -58,8 +58,7 @@ FEATURES: list[dict] = [
     {
         "key": "order_placement",
         "title": "Placing and cancelling orders",
-        "what": "Talks to Robinhood's agentic MCP server to submit a decision that "
-                "numpy already made.",
+        "what": "Removed before publication: this build places no orders.",
         "needs_model": True,
         "could_use_model": False,
         "default_provider": "gemini_free",

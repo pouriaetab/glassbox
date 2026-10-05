@@ -23,7 +23,7 @@ export default function ModeSwitch() {
     <div className="mode-switch">
       <div className="label mut" style={{ marginBottom: 5 }}>
         mode
-        <Info text="Paper simulates fills against live quotes. Advisory posts tickets for you to place by hand. Live places real orders and cannot be enabled from this toggle — it needs TC_LIVE_CONFIRM in .env plus a restart, so a mis-click can never risk money." />
+        <Info text="Paper simulates fills against live quotes. Advisory posts tickets for you to place by hand. There is no live mode in this build: no broker connection, so nothing here can place a real order." />
       </div>
       <div className="seg">
         {st.options.map((o) => (

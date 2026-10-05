@@ -10,12 +10,9 @@ a plain variable:
 
     paper     -> always allowed. Simulated fills, no real orders.
     advisory  -> always allowed. Writes tickets for a human; still no real orders.
-    mcp       -> allowed ONLY if .env contains
-                 TC_LIVE_CONFIRM=I_ACCEPT_REAL_MONEY_RISK
 
-A UI toggle can therefore never, by itself, put real money at risk. Turning on
-live trading still requires editing a file on disk and restarting — a deliberate
-speed bump that a mis-click cannot clear.
+There is no live mode in this build: the broker connection was removed before
+publication, so no setting or toggle can place a real order.
 """
 from __future__ import annotations
 
@@ -34,7 +31,7 @@ LABELS = {
 DESCRIPTIONS = {
     "paper": "Simulated fills against live quotes, degraded by the measured cost model. No real orders.",
     "advisory": "The engine posts entry and exit tickets for you to execute by hand. No real orders.",
-    "mcp": "The engine places real orders in your Robinhood Agentic account.",
+    "mcp": "Not available in this build: there is no broker connection.",
 }
 
 
@@ -71,10 +68,8 @@ def set_mode(mode: str) -> dict:
             "changed": False,
             "mode": get_mode(),
             "reason": (
-                "Live trading cannot be enabled from the UI. Set "
-                "TC_LIVE_CONFIRM=I_ACCEPT_REAL_MONEY_RISK in .env and restart. "
-                "The extra step is deliberate: a mis-click should not be able to "
-                "start risking real money."
+                "Live trading is not part of this build: there is no broker "
+                "connection, so no setting can place a real order."
             ),
         }
     _ensure()

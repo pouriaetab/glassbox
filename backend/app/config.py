@@ -228,8 +228,8 @@ class Settings(BaseSettings):
             "explanation": (
                 "paper = no real orders, fills simulated against live quotes. "
                 "advisory = engine writes order tickets for a human to execute. "
-                "mcp = engine places real orders, and only if TC_LIVE_CONFIRM is "
-                "exactly 'I_ACCEPT_REAL_MONEY_RISK'."
+                "There is no live mode in this build: no broker connection, "
+                "so no real orders."
             ),
         }
 

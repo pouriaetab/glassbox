@@ -1,18 +1,15 @@
-"""Brokers. Three of them, deliberately.
+"""Execution modes.
 
 paper     -- no real orders. Fills are simulated against the LIVE quote using a
              random draw from the measured cost model, so paper P&L is degraded
              by the same friction real orders face.
 
-advisory  -- the engine writes a signed order ticket and stops. A human, or a
-             Claude session that holds the Robinhood MCP connection, executes it
-             and reports the fill back. This is the honest bridge while the
-             headless OAuth story is unproven: the strategy runs unattended, the
-             execution stays supervised.
+advisory  -- the engine writes a signed order ticket and stops. A human reviews
+             it and records the outcome by hand: the strategy runs unattended,
+             any execution stays supervised.
 
-mcp       -- direct orders through Robinhood's agentic MCP endpoint. Requires a
-             one-time desktop OAuth, an Agentic account, and TC_LIVE_CONFIRM.
-             It refuses to do anything otherwise, loudly.
+There is no third, live mode: the broker connection was removed before
+publication (see no_broker.py).
 """
 from __future__ import annotations
 
@@ -153,7 +150,7 @@ class AdvisoryBroker:
             "strategy": req.strategy,
             "expires_at": time.time() + 120,
             "instruction_for_executor": (
-                "Place this as a market order on the Robinhood Agentic account, then "
+                "If you act on this ticket at your venue, "
                 "report the actual fill price back via POST /api/v1/orders/{client_id}/fill. "
                 "If more than 2 minutes have passed, do not place it -- the signal is stale."
             ),
