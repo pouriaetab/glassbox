@@ -46,7 +46,7 @@ OPERATOR_STRATEGIES = ["fast_flip", "forced_momentum", "regime_swing", "lead_lag
 #                  something.
 #   morning_mover  The operator's own idea, finally built. Buys a coin whose
 #                  volume is already >=1.5x its normal for that slice of the day,
-#                  between 01:00 and 09:00 Austin, and holds it through the
+#                  between 01:00 and 09:00 Central, and holds it through the
 #                  afternoon. The entry window and the volume threshold are both
 #                  measured, not guessed (see the module docstring). It has NOT
 #                  been shown to beat its cost -- holding to the close from a

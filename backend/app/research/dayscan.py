@@ -6,7 +6,7 @@ see whether the tells were there before the move.
 
 Everything is computed from the `bars` table on demand. No new storage, so it
 works on history we already have (hourly bars back to 2022) and stays correct as
-new bars land. Days are Austin local, midnight to midnight.
+new bars land. Days are Central time, midnight to midnight.
 
 Definitions are fixed and deliberate -- these exact words are shown in the UI:
   move        open of the day  ->  last price we have for that day

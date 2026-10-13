@@ -69,7 +69,7 @@ function ControlPanel() {
     <Card title="strategy control — switch, budget, per-trade cap">
       <p className="mut" style={{ fontSize: 12, marginTop: 0 }}>
         Yours, live, no restart. Switching a strategy <b>off</b> refuses new entries only — anything it already holds keeps running its own exit, so nothing is ever left unmanaged.
-        <Info text="Budget and cap are both in dollars of notional opened; 0 means no limit. The daily budget counts filled opening orders since midnight Austin, not signals. A setting you make by hand outranks anything automatic: the allocator cannot switch back on what you switched off." />
+        <Info text="Budget and cap are both in dollars of notional opened; 0 means no limit. The daily budget counts filled opening orders since midnight Central time, not signals. A setting you make by hand outranks anything automatic: the allocator cannot switch back on what you switched off." />
       </p>
       {ctl.err ? <Banner tone="neg">{ctl.err}</Banner>
         : !ctl.data ? <div className="mut">loading…</div>
@@ -355,7 +355,7 @@ export default function Strategies({ onModel }) {
         ))}
       </div>
 
-      <h2>The day's weather — regimes found in the data, and what each strategy earns in them<Info text="Every day since 2022 is read at 09:00 Austin (breadth, the median coin's 24h return, BTC's 24h return, dispersion, BTC volatility, the move since midnight) and clustered by a Gaussian mixture; the number of day types is chosen by BIC and each type is named from its own centroid. Every strategy is then replayed with its own exit and every entry is filed under the weather of its day. The router turns a cell that is ≥2σ from the strategy's overall into a size multiplier between 0.5 and 1.5, shrunk by n/(n+40); an indistinguishable cell leaves size alone." /></h2>
+      <h2>The day's weather — regimes found in the data, and what each strategy earns in them<Info text="Every day since 2022 is read at 09:00 Central (breadth, the median coin's 24h return, BTC's 24h return, dispersion, BTC volatility, the move since midnight) and clustered by a Gaussian mixture; the number of day types is chosen by BIC and each type is named from its own centroid. Every strategy is then replayed with its own exit and every entry is filed under the weather of its day. The router turns a cell that is ≥2σ from the strategy's overall into a size multiplier between 0.5 and 1.5, shrunk by n/(n+40); an indistinguishable cell leaves size alone." /></h2>
       <Card>
         {reg.err ? <div className="neg">{reg.err}</div>
           : !reg.data?.available ? <div className="mut">{reg.data?.why || 'waiting for the first daily run'}</div>
@@ -391,7 +391,7 @@ export default function Strategies({ onModel }) {
               <>
                 <div className="row" style={{ gap: 14, flexWrap: 'wrap', marginBottom: 8 }}>
                   <Stat small label="today" value={d.today?.regime || 'not read yet'}
-                        meta={d.today ? `p ${Number(d.today.p).toFixed(2)} · breadth ${Number(d.today.breadth).toFixed(2)} · median 24h ${Number(d.today.median_24h) >= 0 ? '+' : ''}${Number(d.today.median_24h).toFixed(1)}%` : `read at ${String(d.read_hour).padStart(2, '0')}:00 Austin`} />
+                        meta={d.today ? `p ${Number(d.today.p).toFixed(2)} · breadth ${Number(d.today.breadth).toFixed(2)} · median 24h ${Number(d.today.median_24h) >= 0 ? '+' : ''}${Number(d.today.median_24h).toFixed(1)}%` : `read at ${String(d.read_hour).padStart(2, '0')}:00 Central`} />
                   {regimes.map((r) => (
                     <Stat key={r} small label={r} value={`${d.counts[r]} days`}
                           meta={d.rest_of_day_by_regime?.[r]?.n ? `median coin rest-of-day ${d.rest_of_day_by_regime[r].mean_net_pct >= 0 ? '+' : ''}${d.rest_of_day_by_regime[r].mean_net_pct.toFixed(2)}%` : ''} />

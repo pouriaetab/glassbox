@@ -1,6 +1,6 @@
 """Catch the first hour of a burst, take a small target, and be out.
 
-WHERE THIS COMES FROM -- 2026-09-20, 10:30-12:00 Austin
+WHERE THIS COMES FROM -- 2026-09-20, 10:30-12:00 Central
 -------------------------------------------------------
 Twelve coins ran 3-12% inside an hour (SUI, WLD, DOT, NEAR, ENA, SEI, CRV,
 ONDO, WIF, OP, ZRO, POPCAT). The desk bought all twelve between 11:41 and

@@ -30,7 +30,7 @@ SCORE_RECIPE: dict[str, dict] = {
         "expr": "raw_score = climb_pct * hour_weight",
         "source": "strategy/day_climb.py",
         "plain": "How far the coin has already climbed over the last 4 hours, "
-                 "multiplied by a weight for the hour of the day it is in Austin. "
+                 "multiplied by a weight for the hour of the day it is in Central time. "
                  "Nothing else enters the ranking — the volatility, the target and "
                  "the stop are computed after a signal wins, not to decide who wins.",
         "inputs": [
@@ -82,7 +82,7 @@ SCORE_RECIPE: dict[str, dict] = {
             {"name": "dip_depth", "weight": "x-1 (deeper ranks higher)",
              "what": "percent the coin fell over the lookback"},
             {"name": "hour_weight", "weight": "multiplier, learned per hour",
-             "what": "how well entries at this Austin hour have done"},
+             "what": "how well entries at this Central time hour have done"},
         ],
         "gates_before_scoring": [
             "the fall must be at least dip_pct (10%)",

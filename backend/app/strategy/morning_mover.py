@@ -14,7 +14,7 @@ running twenty-minute scalps. This connects the two.
 
 WHAT THE MEASUREMENTS SAY (all on the hourly panel, 33 tradable coins)
 
-  Entry hour. Sweeping every hour from 01:00 to 21:00 Austin, buying a coin whose
+  Entry hour. Sweeping every hour from 01:00 to 21:00 Central, buying a coin whose
   volume-so-far is >= 2x its normal for that same window:
 
       buy 03:00 -> +5.17% still available before the day's high, +3% reached 53.4%
@@ -161,7 +161,7 @@ class MorningMover(Strategy):
         p = self.params
         if t < self.warmup_bars():
             return []
-        # NO CLOCK GATE. There used to be one here (01:00-09:00 Austin) and the
+        # NO CLOCK GATE. There used to be one here (01:00-09:00 Central) and the
         # measurement behind it was real: volume-led entries decayed monotonically
         # from 01:00 to 21:00. A measured decay still does not justify refusing
         # every other hour -- this repo has twice fitted an hour selection that

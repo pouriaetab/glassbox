@@ -341,7 +341,7 @@ def get(day: str, force: bool = False) -> dict:
     # build of a day happens at whatever time that job last fired DURING it, and
     # everything after that is never picked up.
     #
-    # 2026-09-18: the report was built at 21:20 Austin; ENA closed at 22:49. The
+    # 2026-09-18: the report was built at 21:20 Central; ENA closed at 22:49. The
     # Daily tab said 7 trades / +$36.73 for the rest of time while the Journal,
     # which reads the trades directly, showed 8 / +$42.29. Two tabs, two answers,
     # and the one that was wrong was the one that looked authoritative.

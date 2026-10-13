@@ -21,7 +21,7 @@ A row per strategy in `strategy_control`, read through `state()` and enforced in
                      watching it. That distinction is the whole safety story
                      here, so it is enforced by intent: only intent="open" is
                      ever refused.
-    daily_budget_usd cap on notional OPENED per Austin day. 0 = no cap.
+    daily_budget_usd cap on notional OPENED per Central time day. 0 = no cap.
                      Counted from filled open orders, not from intentions.
     max_position_usd per-trade ceiling for this strategy. 0 = no cap.
 

@@ -2,7 +2,7 @@
 
 2026-09-19: the Daily tab said Sep 18 was 7 trades / +$36.73. The Journal, which
 reads the trades directly, said 8 / +$42.29. Both were reading the same database.
-The report had been built at 21:20 Austin by a six-hourly job; ENA closed at
+The report had been built at 21:20 Central by a six-hourly job; ENA closed at
 22:49, still on the 18th, and the day then stopped being "today" — so the report
 was treated as final forever, 89 minutes short of the truth.
 

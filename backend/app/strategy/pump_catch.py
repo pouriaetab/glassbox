@@ -2,7 +2,7 @@
 
 WHY THIS EXISTS -- PENGU, 2026-09-19
 ------------------------------------
-The run was 11:39 -> 12:19 Austin (0.00798 -> 0.00830, 2.1M coins in the 11:52
+The run was 11:39 -> 12:19 Central (0.00798 -> 0.00830, 2.1M coins in the 11:52
 minute). volume_build saw it when the FORMING calendar hour's volume crossed
 1.5x normal, on hourly bars refreshed every ten minutes, and bought at 12:24:05
 for 0.008301 -- the top. Over three days every open it made landed 1 to 57

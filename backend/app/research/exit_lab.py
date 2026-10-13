@@ -393,17 +393,17 @@ RULES: dict[str, dict] = {
     #      before that new day cycle start"
     #
     # NEAR #48 is the case that prompted it: held through midnight on the 24-hour
-    # limit for -$6.74, when a flat exit at 22:00 Austin would have been +$0.21
+    # limit for -$6.74, when a flat exit at 22:00 Central would have been +$0.21
     # and the best price in the three hours before midnight was +$2.70.
     #
     # One trade is an anecdote. Three cut-off hours, so the replay says which (if
     # any) is real rather than fitting the one that rescues NEAR.
     "flat_by_2100": {"fn": _mk(trail=0.08, flat_by_hour=21),
-                     "what": "8% trail, but be flat by 21:00 Austin"},
+                     "what": "8% trail, but be flat by 21:00 Central"},
     "flat_by_2200": {"fn": _mk(trail=0.08, flat_by_hour=22),
-                     "what": "8% trail, but be flat by 22:00 Austin"},
+                     "what": "8% trail, but be flat by 22:00 Central"},
     "flat_by_2300": {"fn": _mk(trail=0.08, flat_by_hour=23),
-                     "what": "8% trail, but be flat by 23:00 Austin"},
+                     "what": "8% trail, but be flat by 23:00 Central"},
     "flat_by_2200_nofloor": {"fn": _mk(trail=0.08, breakeven=False, flat_by_hour=22),
                              "what": "as flat_by_2200, without the breakeven floor"},
     # ── cut the day when the day is bear, the operator's ZEC observation ───
@@ -425,11 +425,11 @@ RULES: dict[str, dict] = {
                                        breakeven=False, trend_n=6, bear_h=6, flat_by_hour=22),
                              "trend_n": 6, "bear_h": 6,
                              "what": "ride while making higher lows (6 bars), cut if the day "
-                                     "turns bear (6h), flat by 22:00 Austin, no floor"},
+                                     "turns bear (6h), flat by 22:00 Central, no floor"},
     "ride_n6_flat22": {"fn": _mk(trail=0.08, target=0.08, decay=(0.01, 0.05),
                                  breakeven=False, trend_n=6, flat_by_hour=22),
                        "trend_n": 6,
-                       "what": "ride while making higher lows (6 bars), flat by 22:00 Austin, no floor"},
+                       "what": "ride while making higher lows (6 bars), flat by 22:00 Central, no floor"},
 }
 
 
@@ -623,7 +623,7 @@ def replay(trade: dict) -> list[dict]:
                 ok = closes[-1] > avg and floor_now > floor_before
             trend_by_n[n][b["ts"]] = ok
 
-    # The operator's day boundary is Austin's, not UTC's. A real timezone
+    # The operator's day boundary is US Central time, not UTC. A real timezone
     # conversion (it was a fixed -5h, which is wrong for half the year).
     hour_at = {b["ts"]: _dt.datetime.fromtimestamp(b["ts"], TZ).hour for b in bars}
 

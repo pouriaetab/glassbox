@@ -307,7 +307,7 @@ export default function Daily() {
           than on the one ZEC day that raised it. */}
       <Card collapse="daily.when-the-day-has-turned-bear" title="when the day has turned bear — does the rest of the day keep falling?">
         <p className="mut" style={{ fontSize: 12, marginTop: 0 }}>
-          Every coin-day in the hourly history, read at 06:00, 09:00 and 12:00 Austin. Bear = below the day's open and making lower highs and lower lows over the last W hours than the W before. No percentage anywhere in the definition.
+          Every coin-day in the hourly history, read at 06:00, 09:00 and 12:00 Central. Bear = below the day's open and making lower highs and lower lows over the last W hours than the W before. No percentage anywhere in the definition.
           <Info text="Rest-of-day is the day's last close against the price at the reading hour, before costs. 'Further drawdown' is how much lower it went before the close, on average. The verdict compares bear days to the rest AND sizes the expected move against one side of Robinhood's spread — a move smaller than the spread is not a reason to sell. The exit lab's bear_cut_* rules are the same shape applied to the desk's own trades." />
         </p>
         {shape.err ? <div className="neg">{shape.err}</div>

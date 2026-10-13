@@ -142,7 +142,7 @@ function CoinModal({ coin, day, onClose }) {
          <div className="ds-modal-head-main">
           <div>
             <h2>{coin.symbol}</h2>
-            <p className="ds-modal-sub">{day} · Austin time · {coin.path?.length || 0} points</p>
+            <p className="ds-modal-sub">{day} · Central time · {coin.path?.length || 0} points</p>
           </div>
           <div style={{ textAlign: 'right' }}>
             <div className="ds-modal-price">{price(coin.price)}</div>
@@ -326,7 +326,7 @@ export default function DayScan() {
           </div>
         )}
         <p className="sub">
-          Every active coin we track, for one day, Austin time.
+          Every active coin we track, for one day, Central time.
           {cnt ? ` Of the ${cnt.rh_tradable} Robinhood will fill, ${cnt.engine_enabled} are enabled for the engine now (universe role core or tradeable) and ${cnt.rh_not_enabled} are watch-only.` : ''}
           {view ? ` ${view.up} up · ${view.in_play} in play · bars every ${view.granularity_s / 60}m` : ''}
           <Info text="In play = volume running at least 2x this coin's own normal AND swinging at least 1.5x wider than normal. Both at once. Across 2022-2026 those days closed up 54-64% of the time versus 45% for quiet days." />

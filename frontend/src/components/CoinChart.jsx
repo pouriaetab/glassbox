@@ -68,7 +68,7 @@ export default function CoinChart({ symbol, day, entry, exit, onClose }) {
           <div>
             <h2>{symbol}</h2>
             <p className="ds-modal-sub">
-              {day || 'most recent'} · Austin time
+              {day || 'most recent'} · Central time
               {data?.spread_pct != null && <> · spread {data.spread_pct.toFixed(2)}%/side</>}
             </p>
           </div>

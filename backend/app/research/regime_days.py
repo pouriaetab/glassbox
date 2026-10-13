@@ -325,7 +325,7 @@ def study(days: int = 4 * 365, panel=None) -> dict:
             "scorecard": card, "today": today, "labels_recent": dict(list(fit["labels"].items())[-30:]),
             "model": {"names": fit["names"], "standardise": fit["standardise"], "model": fit["model"]},
             "cost_bps_per_side": side, "took_s": time.time() - t0,
-            "definition": (f"Each day read at {READ_HOUR:02d}:00 Austin from the six features; "
+            "definition": (f"Each day read at {READ_HOUR:02d}:00 Central from the six features; "
                            f"Gaussian mixture, k by BIC; names from the centroid. Scorecard = every "
                            f"active strategy replayed with its own exit, {side:.0f} bps each side, "
                            f"entries filed by the regime of their day.")}
